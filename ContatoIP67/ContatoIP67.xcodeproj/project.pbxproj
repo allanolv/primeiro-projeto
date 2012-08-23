@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		90DD05A115E59EF000E46D0B /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD05A015E59EF000E46D0B /* ListaContatosViewController.m */; };
+		90F2324615E44046000BAEAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F2324515E44046000BAEAA /* UIKit.framework */; };
+		90F2324815E44046000BAEAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F2324715E44046000BAEAA /* Foundation.framework */; };
+		90F2324A15E44046000BAEAA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F2324915E44046000BAEAA /* CoreGraphics.framework */; };
+		90F2325015E44046000BAEAA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90F2324E15E44046000BAEAA /* InfoPlist.strings */; };
+		90F2325215E44046000BAEAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F2325115E44046000BAEAA /* main.m */; };
+		90F2325615E44046000BAEAA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F2325515E44046000BAEAA /* AppDelegate.m */; };
+		90F2325F15E440F4000BAEAA /* FormularioContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F2325D15E440F4000BAEAA /* FormularioContatoViewController.m */; };
+		90F2326015E440F4000BAEAA /* FormularioContatoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F2325E15E440F4000BAEAA /* FormularioContatoViewController.xib */; };
+		90F2326315E45CFC000BAEAA /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F2326215E45CFC000BAEAA /* Contato.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		90DD059F15E59EF000E46D0B /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
+		90DD05A015E59EF000E46D0B /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
+		90F2324115E44046000BAEAA /* ContatoIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatoIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F2324515E44046000BAEAA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		90F2324715E44046000BAEAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		90F2324915E44046000BAEAA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		90F2324D15E44046000BAEAA /* ContatoIP67-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ContatoIP67-Info.plist"; sourceTree = "<group>"; };
+		90F2324F15E44046000BAEAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		90F2325115E44046000BAEAA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90F2325315E44046000BAEAA /* ContatoIP67-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContatoIP67-Prefix.pch"; sourceTree = "<group>"; };
+		90F2325415E44046000BAEAA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		90F2325515E44046000BAEAA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		90F2325C15E440F4000BAEAA /* FormularioContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormularioContatoViewController.h; sourceTree = "<group>"; };
+		90F2325D15E440F4000BAEAA /* FormularioContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormularioContatoViewController.m; sourceTree = "<group>"; };
+		90F2325E15E440F4000BAEAA /* FormularioContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormularioContatoViewController.xib; sourceTree = "<group>"; };
+		90F2326115E45CFC000BAEAA /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
+		90F2326215E45CFC000BAEAA /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		90F2323E15E44046000BAEAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F2324615E44046000BAEAA /* UIKit.framework in Frameworks */,
+				90F2324815E44046000BAEAA /* Foundation.framework in Frameworks */,
+				90F2324A15E44046000BAEAA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		90F2323615E44046000BAEAA = {
+			isa = PBXGroup;
+			children = (
+				90F2324B15E44046000BAEAA /* ContatoIP67 */,
+				90F2324415E44046000BAEAA /* Frameworks */,
+				90F2324215E44046000BAEAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		90F2324215E44046000BAEAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				90F2324115E44046000BAEAA /* ContatoIP67.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90F2324415E44046000BAEAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90F2324515E44046000BAEAA /* UIKit.framework */,
+				90F2324715E44046000BAEAA /* Foundation.framework */,
+				90F2324915E44046000BAEAA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90F2324B15E44046000BAEAA /* ContatoIP67 */ = {
+			isa = PBXGroup;
+			children = (
+				90F2325415E44046000BAEAA /* AppDelegate.h */,
+				90F2325515E44046000BAEAA /* AppDelegate.m */,
+				90DD059F15E59EF000E46D0B /* ListaContatosViewController.h */,
+				90DD05A015E59EF000E46D0B /* ListaContatosViewController.m */,
+				90F2324C15E44046000BAEAA /* Supporting Files */,
+				90F2325C15E440F4000BAEAA /* FormularioContatoViewController.h */,
+				90F2325D15E440F4000BAEAA /* FormularioContatoViewController.m */,
+				90F2326115E45CFC000BAEAA /* Contato.h */,
+				90F2326215E45CFC000BAEAA /* Contato.m */,
+				90F2325E15E440F4000BAEAA /* FormularioContatoViewController.xib */,
+			);
+			path = ContatoIP67;
+			sourceTree = "<group>";
+		};
+		90F2324C15E44046000BAEAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				90F2324D15E44046000BAEAA /* ContatoIP67-Info.plist */,
+				90F2324E15E44046000BAEAA /* InfoPlist.strings */,
+				90F2325115E44046000BAEAA /* main.m */,
+				90F2325315E44046000BAEAA /* ContatoIP67-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		90F2324015E44046000BAEAA /* ContatoIP67 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90F2325915E44046000BAEAA /* Build configuration list for PBXNativeTarget "ContatoIP67" */;
+			buildPhases = (
+				90F2323D15E44046000BAEAA /* Sources */,
+				90F2323E15E44046000BAEAA /* Frameworks */,
+				90F2323F15E44046000BAEAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContatoIP67;
+			productName = ContatoIP67;
+			productReference = 90F2324115E44046000BAEAA /* ContatoIP67.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		90F2323815E44046000BAEAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 90F2323B15E44046000BAEAA /* Build configuration list for PBXProject "ContatoIP67" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 90F2323615E44046000BAEAA;
+			productRefGroup = 90F2324215E44046000BAEAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				90F2324015E44046000BAEAA /* ContatoIP67 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		90F2323F15E44046000BAEAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F2325015E44046000BAEAA /* InfoPlist.strings in Resources */,
+				90F2326015E440F4000BAEAA /* FormularioContatoViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		90F2323D15E44046000BAEAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F2325215E44046000BAEAA /* main.m in Sources */,
+				90F2325615E44046000BAEAA /* AppDelegate.m in Sources */,
+				90F2325F15E440F4000BAEAA /* FormularioContatoViewController.m in Sources */,
+				90F2326315E45CFC000BAEAA /* Contato.m in Sources */,
+				90DD05A115E59EF000E46D0B /* ListaContatosViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		90F2324E15E44046000BAEAA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90F2324F15E44046000BAEAA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		90F2325715E44046000BAEAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		90F2325815E44046000BAEAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		90F2325A15E44046000BAEAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContatoIP67/ContatoIP67-Prefix.pch";
+				INFOPLIST_FILE = "ContatoIP67/ContatoIP67-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		90F2325B15E44046000BAEAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ContatoIP67/ContatoIP67-Prefix.pch";
+				INFOPLIST_FILE = "ContatoIP67/ContatoIP67-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		90F2323B15E44046000BAEAA /* Build configuration list for PBXProject "ContatoIP67" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F2325715E44046000BAEAA /* Debug */,
+				90F2325815E44046000BAEAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90F2325915E44046000BAEAA /* Build configuration list for PBXNativeTarget "ContatoIP67" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90F2325A15E44046000BAEAA /* Debug */,
+				90F2325B15E44046000BAEAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 90F2323815E44046000BAEAA /* Project object */;
+}

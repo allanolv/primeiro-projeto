@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ListaContatosViewController : UITableViewController
--(void)exibeformulario;
+@property(strong) NSMutableArray *contatos;
+- (id)initWithContatos:(NSMutableArray *)contato;
+- (void)exibeformulario;
 @end

@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *endereco;
 @property (weak, nonatomic) IBOutlet UITextField *site;
-- (IBAction)pegardadosformulario:(id)sender;
+- (id)initWithContatos:(NSMutableArray *) contato;
 - (IBAction)proximoelemento:(id)sender;
 - (void)esconderformulario;
 

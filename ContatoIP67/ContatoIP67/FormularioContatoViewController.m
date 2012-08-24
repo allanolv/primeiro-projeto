@@ -21,12 +21,30 @@
 @synthesize email;
 @synthesize endereco;
 @synthesize site;
- 
+
+- (id)initWithContatos:(NSMutableArray *) contato{
+    self = [self init];
+    if(self){
+        self.contatos = contato;
+    }
+    return self;
+}
 - (id)init{
     self = [super init];
     if(self){
         self.contatos = [[NSMutableArray alloc]init];
         self.navigationItem.title=@"Cadastro";
+        UIBarButtonItem *cancelar = [[UIBarButtonItem alloc]initWithTitle:@"Cancelar"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                   action:@selector(esconderformulario)];
+        self.navigationItem.leftBarButtonItem = cancelar;
+        UIBarButtonItem *adicionar = [[UIBarButtonItem alloc]initWithTitle:@"Adicionar"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(criarContato)];
+        self.navigationItem.rightBarButtonItem = adicionar;
+        
         self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"Voltar" style:UIBarButtonItemStylePlain target:self action:@selector(esconderformulario)];
     }
     return self;
@@ -68,7 +86,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)pegardadosformulario:(id)sender {
+- (Contato *)pegardadosformulario{
     
 //    NSMutableDictionary *dadosdocontato = [[NSMutableDictionary alloc] init];
     Contato *c = [[Contato alloc] init];
@@ -83,11 +101,8 @@
 //    [dadosdocontato setValue:email forKey:@"Email"];
 //    [dadosdocontato setValue:endereco forKey:@"Endereço"];
 //    [dadosdocontato setValue:site forKey:@"Site"];
-    [self.contatos addObject:c];
-    NSLog(@"contatos:%@", self.contatos);
-    [[self view] endEditing:YES];
     
-
+    return c;
 }
 
 - (IBAction)proximoelemento:(id)sender{
@@ -106,6 +121,17 @@
 
 - (void) esconderformulario{
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) criarContato{
+
+    Contato *c = [self pegardadosformulario];
+    [self.contatos addObject:c];
+    NSLog(@"contatos:%d", self.contatos.count);
+    [self dismissModalViewControllerAnimated:YES];
+    [[self view] endEditing:YES];
+
+
 }
 @end
 

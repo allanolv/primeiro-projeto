@@ -13,13 +13,19 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-
+@synthesize contatos;
+@synthesize arquivoContrato;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.contatos = [[NSMutableArray alloc]init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    NSArray *usersDirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDir = [usersDirs objectAtIndex:0];
+    self.arquivoContrato = [NSString stringWithFormat:@"%@/ArquivoContatos", documentDir];
 
 //    FormularioContatoViewController *formulario = [[FormularioContatoViewController alloc]init];
-    ListaContatosViewController *lista = [[ListaContatosViewController alloc]init];
+    ListaContatosViewController *lista = [[ListaContatosViewController alloc]initWithContatos:self.contatos];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:lista];
     self.window.rootViewController = nav;
     
@@ -39,6 +45,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    [NSKeyedArchiver archiveRootObject:self.contatos toFile:self.arquivoContrato];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

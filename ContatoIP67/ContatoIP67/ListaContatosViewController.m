@@ -7,7 +7,6 @@
 //
 
 #import "ListaContatosViewController.h"
-#import "FormularioContatoViewController.h"
 #import "Contato.h"
 
 @implementation ListaContatosViewController
@@ -29,6 +28,7 @@
     if (self) {
         self.navigationItem.title=@"Lista de Contatos";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem  alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(exibeformulario)];
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
     return self;
     
@@ -37,6 +37,27 @@
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(editingStyle==UITableViewCellEditingStyleDelete)
+    {
+        [self.contatos removeObjectAtIndex:indexPath.row];
+        NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    Contato *c = [self.contatos objectAtIndex:indexPath.row];
+    
+    FormularioContatoViewController *form = [[FormularioContatoViewController alloc] initWithObjContatos:c];
+    form.contatos = self.contatos;
+    
+    [self.navigationController pushViewController:form animated:YES];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -55,12 +76,20 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    Contato *c_out = [self.contatos objectAtIndex:sourceIndexPath.row];
+    [contatos removeObjectAtIndex:sourceIndexPath.row];
+    [contatos insertObject:c_out atIndex:destinationIndexPath.row];
+}
+
 - (void)exibeformulario{
     
 //    UIAlertView *al = [[UIAlertView alloc]initWithTitle:@"Atenção" message:@"TESTE" delegate:nil cancelButtonTitle:@"Cancelar" otherButtonTitles:nil, nil];
 //    [al show];
     
-    FormularioContatoViewController *form = [[FormularioContatoViewController alloc]initWithContatos:self.contatos];
+    FormularioContatoViewController *form = [[FormularioContatoViewController alloc]init];
+    
+    form.delegate = self;
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];
@@ -70,5 +99,11 @@
 {
     [self.tableView reloadData];
 }
+
+-(void) contatoAdicionado:(Contato *)c{
+    
+    [self.contatos addObject:c];
+}
+
 
 @end

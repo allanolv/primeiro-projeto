@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface ListaContatosViewController : UITableViewController
+#import "Contato.h"
+#import "FormularioContatoViewController.h"
+@interface ListaContatosViewController : UITableViewController<ContatoProtocol>
 @property(strong) NSMutableArray *contatos;
+
 - (id)initWithContatos:(NSMutableArray *)contato;
 - (void)exibeformulario;
+
 @end

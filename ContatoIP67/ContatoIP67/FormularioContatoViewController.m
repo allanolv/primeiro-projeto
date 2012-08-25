@@ -16,19 +16,25 @@
 @implementation FormularioContatoViewController
 
 @synthesize contatos;
+@synthesize Objcontatos;
 @synthesize nome;
 @synthesize telefone;
 @synthesize email;
 @synthesize endereco;
 @synthesize site;
+@synthesize delegate;
 
-- (id)initWithContatos:(NSMutableArray *) contato{
-    self = [self init];
+- (id)initWithObjContatos:(Contato *) _contato{
+    self = [super init];
     if(self){
-        self.contatos = contato;
+        self.Objcontatos = _contato;
+        
+        UIBarButtonItem *confirmar =[[UIBarButtonItem alloc]initWithTitle:@"Confirmar" style:UIBarButtonItemStylePlain target:self action:@selector(atualizarContato)];
+        self.navigationItem.rightBarButtonItem = confirmar;
     }
     return self;
 }
+
 - (id)init{
     self = [super init];
     if(self){
@@ -65,8 +71,13 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    if(self.Objcontatos){
+        nome.text = Objcontatos.nome;
+        telefone.text=Objcontatos.telefone;
+        email.text = Objcontatos.email;
+        endereco.text = Objcontatos.endereco;
+        site.text = Objcontatos.site;
+    }
 }
 
 - (void)viewDidUnload
@@ -126,13 +137,21 @@
 - (void) criarContato{
 
     Contato *c = [self pegardadosformulario];
-    [self.contatos addObject:c];
+//    [self.contatos addObject:c];
+    [delegate contatoAdicionado:c ];
     NSLog(@"contatos:%d", self.contatos.count);
     [self dismissModalViewControllerAnimated:YES];
     [[self view] endEditing:YES];
 
 
 }
+
+- (void) atualizarContato{
+
+    [self pegardadosformulario];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end
 
 

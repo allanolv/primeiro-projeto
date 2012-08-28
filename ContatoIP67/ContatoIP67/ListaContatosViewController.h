@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Contato.h"
 #import "FormularioContatoViewController.h"
-@interface ListaContatosViewController : UITableViewController<ContatoProtocol>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <Twitter/Twitter.h>
+@interface ListaContatosViewController : UITableViewController<ContatoProtocol, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+{
+    Contato *contatoSelecionado;
+}
 @property(strong) NSMutableArray *contatos;
 
 - (id)initWithContatos:(NSMutableArray *)contato;

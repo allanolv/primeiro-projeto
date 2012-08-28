@@ -22,7 +22,9 @@
 @synthesize email;
 @synthesize endereco;
 @synthesize site;
+@synthesize twitter;
 @synthesize delegate;
+@synthesize foto;
 
 - (id)initWithObjContatos:(Contato *) _contato{
     self = [super init];
@@ -77,6 +79,7 @@
         email.text = Objcontatos.email;
         endereco.text = Objcontatos.endereco;
         site.text = Objcontatos.site;
+        twitter.text = Objcontatos.twitter;
     }
 }
 
@@ -87,6 +90,7 @@
     [self setEmail:nil];
     [self setEndereco:nil];
     [self setSite:nil];
+    [self setTwitter:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -100,20 +104,31 @@
 - (Contato *)pegardadosformulario{
     
 //    NSMutableDictionary *dadosdocontato = [[NSMutableDictionary alloc] init];
-    Contato *c = [[Contato alloc] init];
-    [c setNome:[nome text]];
+    if(!self.Objcontatos)
+    {
+        Objcontatos = [[Contato alloc] init];
+    }
+        Objcontatos.nome = nome.text ;
+        Objcontatos.telefone=telefone.text;
+        Objcontatos.email=email.text;
+        Objcontatos.endereco=endereco.text;
+        Objcontatos.site=site.text;
+        Objcontatos.twitter = twitter.text;
+
+    /*[c setNome:[nome text]];
     [c setTelefone:[telefone text]];
     [c setEmail:[email text]];
     [c setEndereco:[endereco text]];
     [c setSite:[site text]];
-    
+    [c setTwitter:[twitter text]];
+    */
 //    [dadosdocontato setValue:nome forKey:@"Nome"];
 //    [dadosdocontato setValue:telefone forKey:@"Telefone"];
 //    [dadosdocontato setValue:email forKey:@"Email"];
 //    [dadosdocontato setValue:endereco forKey:@"Endereço"];
 //    [dadosdocontato setValue:site forKey:@"Site"];
     
-    return c;
+    return Objcontatos;
 }
 
 - (IBAction)proximoelemento:(id)sender{
@@ -126,7 +141,10 @@
     }else if (endereco==sender) {
         [site becomeFirstResponder];
     }else if (site==sender) {
+        [twitter becomeFirstResponder];
+    }else if (twitter==sender) {
         [site resignFirstResponder];
+
     }
 }
 
@@ -150,6 +168,26 @@
 
     [self pegardadosformulario];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)selecionaFoto:(id)sender{
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        
+    }else {
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.allowsEditing = YES;
+        picker.delegate = self;
+        [self presentModalViewController:picker animated:YES];
+    }
+
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *imagemSelecionada = [info valueForKey:UIImagePickerControllerEditedImage];
+    [foto setImage:imagemSelecionada forState:UIControlStateNormal];
+    [picker dismissModalViewControllerAnimated:YES];
 }
 
 @end

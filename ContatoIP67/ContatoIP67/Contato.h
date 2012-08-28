@@ -15,5 +15,5 @@
 @property NSString *email;
 @property NSString *endereco;
 @property NSString *site;
-
+@property NSString *twitter;
 @end

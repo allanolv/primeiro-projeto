@@ -95,6 +95,32 @@
     [self presentModalViewController:nav animated:YES];
 }
 
+
+- (void) viewDidLoad{
+
+    [super viewDidLoad];
+    
+    
+    UILongPressGestureRecognizer *gesto = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(exibeMaisAcoes:)];
+    
+    [self.tableView addGestureRecognizer:gesto];
+
+}
+
+- (void) exibeMaisAcoes:(UIGestureRecognizer *) gesture{
+    
+    if(gesture.state == UIGestureRecognizerStateBegan){
+        CGPoint ponto = [gesture locationInView:self.tableView];
+        NSIndexPath *index= [self.tableView indexPathForRowAtPoint:ponto];
+        Contato * contato = [contatos objectAtIndex:index.row]; 
+        contatoSelecionado = contato;
+        
+        UIActionSheet *opcoes =[[UIActionSheet alloc] initWithTitle:contato.nome delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Ligar", @"Enviar Email",@"Visualizar site",@"Abrir Mapa",@"Twittar", nil];
+        
+        [opcoes showInView:self.view];
+    }
+}
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.tableView reloadData];
@@ -105,5 +131,81 @@
     [self.contatos addObject:c];
 }
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
 
+    switch (buttonIndex) {
+        case 0:
+            [self ligar];
+            break;
+        case 1:
+            [self enviarEmail];
+            break;
+        case 2:
+            [self abrirSite];
+            break;
+        case 3:
+            [self mostrarMapa];
+            break;
+        case 4:
+            [self twittar];
+            break;
+        default:
+            break;
+    }
+
+}
+
+-(void ) abrirAplicativoComURL:(NSString *)url{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
+-(void) ligar{
+    
+    UIDevice *device = [UIDevice currentDevice];
+    
+    if([device.model isEqualToString:@"iPhone"]){
+        NSString *numero = [NSString stringWithFormat:@"tel:%@", contatoSelecionado.telefone];
+        [self abrirAplicativoComURL:numero];    
+    }else{
+        [[[UIAlertView alloc] initWithTitle:@"Impossível fazer ligação" message:@"Seu dispositivo não é um iPhone." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]show];
+        
+    }
+}
+
+-(void)abrirSite{
+    NSString * url = contatoSelecionado.site;
+    [self abrirAplicativoComURL:url];   
+
+}
+
+-(void) mostrarMapa{
+    NSString * url = [[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", contatoSelecionado.endereco] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [self abrirAplicativoComURL:url];
+
+}
+
+-(void)enviarEmail{
+    if([MFMailComposeViewController canSendMail]){
+        MFMailComposeViewController *enviaEmail = [[MFMailComposeViewController alloc]init];
+        enviaEmail.mailComposeDelegate = self;
+        
+        [enviaEmail setToRecipients:[NSArray arrayWithObject:contatoSelecionado.email]];
+        [enviaEmail setSubject:@"Caelum"];
+        [self presentModalViewController:enviaEmail animated:YES];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ops" message:@"You cannot send an email" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil]; 
+        [alert show];
+    }
+}
+
+-(void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    [self dismissModalViewControllerAnimated:YES];
+
+}  
+
+- (void) twittar{
+    TWTweetComposeViewController *twt = [[TWTweetComposeViewController alloc] init];
+    [twt setInitialText:contatoSelecionado.twitter];
+    [self presentModalViewController:twt animated:YES];
+}
 @end

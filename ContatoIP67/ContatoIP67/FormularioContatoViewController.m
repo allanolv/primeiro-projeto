@@ -80,6 +80,10 @@
         endereco.text = Objcontatos.endereco;
         site.text = Objcontatos.site;
         twitter.text = Objcontatos.twitter;
+        
+        if(Objcontatos.foto){
+            [foto setImage:Objcontatos.foto forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -114,6 +118,9 @@
         Objcontatos.endereco=endereco.text;
         Objcontatos.site=site.text;
         Objcontatos.twitter = twitter.text;
+    if(foto.imageView.image){
+        Objcontatos.foto = foto.imageView.image;
+    }
 
     /*[c setNome:[nome text]];
     [c setTelefone:[telefone text]];

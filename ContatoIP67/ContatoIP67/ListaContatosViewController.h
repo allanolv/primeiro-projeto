@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Contato.h"
 #import "FormularioContatoViewController.h"
+#import "SiteDoContatoViewController.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Twitter/Twitter.h>
 @interface ListaContatosViewController : UITableViewController<ContatoProtocol, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>

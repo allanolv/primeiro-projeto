@@ -26,6 +26,12 @@
 {
     self = [super init];
     if (self) {
+        UIImage *imageTabItem = [UIImage imageNamed:@"lista-contatos.png"];
+        
+        UITabBarItem *tabItem =[[UITabBarItem alloc] initWithTitle:@"Contatos" image:imageTabItem tag:0];
+        self.tabBarItem = tabItem;
+        self.navigationItem.title=@"Contatos";
+        
         self.navigationItem.title=@"Lista de Contatos";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem  alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(exibeformulario)];
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -73,6 +79,7 @@
     
     Contato *contato = [self.contatos objectAtIndex:indexPath.row];
     cell.textLabel.text = contato.nome;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 
     return cell;
 }
 
@@ -173,8 +180,11 @@
 }
 
 -(void)abrirSite{
-    NSString * url = contatoSelecionado.site;
-    [self abrirAplicativoComURL:url];   
+//    NSString * url = contatoSelecionado.site;
+//    [self abrirAplicativoComURL:url];
+    SiteDoContatoViewController *site = [[SiteDoContatoViewController alloc]initWithContato:contatoSelecionado];
+    //UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:site];
+    [self.navigationController pushViewController:site animated:YES];
 
 }
 

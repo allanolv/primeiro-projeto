@@ -8,6 +8,7 @@
 
 #import "FormularioContatoViewController.h"
 #import "Contato.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface FormularioContatoViewController ()
 
@@ -25,6 +26,10 @@
 @synthesize twitter;
 @synthesize delegate;
 @synthesize foto;
+@synthesize campoAtual;
+@synthesize scroll;
+@synthesize latitude;
+@synthesize longitude;
 
 - (id)initWithObjContatos:(Contato *) _contato{
     self = [super init];
@@ -71,6 +76,18 @@
     return self;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.campoAtual = textField;
+
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    self.campoAtual=nil;
+}
+
+
 - (void)viewDidLoad
 {
     if(self.Objcontatos){
@@ -80,11 +97,64 @@
         endereco.text = Objcontatos.endereco;
         site.text = Objcontatos.site;
         twitter.text = Objcontatos.twitter;
-        
+        latitude.text = [NSString stringWithFormat:@"%f", Objcontatos.latitude];
+        longitude.text = [NSString stringWithFormat:@"%f", Objcontatos.longitude];
         if(Objcontatos.foto){
             [foto setImage:Objcontatos.foto forState:UIControlStateNormal];
         }
     }
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoApareceu:) name:UIKeyboardDidShowNotification object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoSumiu:) name:UIKeyboardDidHideNotification object:nil];
+}
+
+- (void) tecladoApareceu:(NSNotification *)notification
+{
+    //NSLog(@"Um teclado qualquer apareceu na tela");
+    
+    NSDictionary *info = [notification userInfo];
+    CGRect areaTeclado = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey]CGRectValue];
+    CGSize tamanhoTeclado = areaTeclado.size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, tamanhoTeclado.height, 0.0);
+    scroll.contentInset = contentInsets;
+    scroll.scrollIndicatorInsets = contentInsets;
+    
+    
+    
+    if(campoAtual != NULL)
+    {
+    
+        CGFloat tamanhoDosElementos = tamanhoTeclado.height + self.navigationController.navigationBar.frame.size.height;
+        CGRect tamanhoTela = self.view.frame;
+        tamanhoTela.size.height -= tamanhoDosElementos;
+        
+        
+        BOOL campoAtualSumiu = !CGRectContainsPoint(tamanhoTela, campoAtual.frame.origin);
+        if(campoAtualSumiu){
+            CGFloat tamanhoAdicional = tamanhoTeclado.height - self.navigationController.navigationBar.frame.size.height;
+            
+            CGPoint pontoVisivel = CGPointMake(0.0, campoAtual.frame.origin.y - tamanhoAdicional);
+            [scroll setContentOffset:pontoVisivel animated:YES];
+            
+            CGSize scrollContentSize = scroll.contentSize;
+            scrollContentSize.height+= tamanhoAdicional;
+            [scroll setContentSize:scrollContentSize];
+        
+        }
+        
+    
+    }
+}
+
+- (void) tecladoSumiu:(NSNotification *)notification
+{
+  //  NSLog(@"Um teclado qualquer sumiu na tela");
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    scroll.contentInset = contentInsets;
+    scroll.scrollIndicatorInsets = contentInsets;
+    [scroll setContentOffset:CGPointZero animated:YES]; 
 }
 
 - (void)viewDidUnload
@@ -98,6 +168,10 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -118,6 +192,9 @@
         Objcontatos.endereco=endereco.text;
         Objcontatos.site=site.text;
         Objcontatos.twitter = twitter.text;
+        Objcontatos.latitude = [NSNumber numberWithFloat:[latitude.text floatValue]];
+        Objcontatos.longitude = [NSNumber numberWithFloat:[longitude.text floatValue]];
+        
     if(foto.imageView.image){
         Objcontatos.foto = foto.imageView.image;
     }
@@ -197,6 +274,18 @@
     [picker dismissModalViewControllerAnimated:YES];
 }
 
+-(IBAction)buscaCoordenadas:(id)sender{
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder geocodeAddressString:endereco.text completionHandler:^(NSArray *resultados, NSError *error) {
+        if(error == nil && [resultados count]>0){
+            CLPlacemark *resultado = [resultados objectAtIndex:0];
+            CLLocationCoordinate2D coordenada = resultado.location.coordinate;
+            latitude.text = [NSString stringWithFormat:@"%f", coordenada.latitude];
+            longitude.text =[NSString stringWithFormat:@"%f", coordenada.longitude];
+        } 
+    }];
+
+}
 @end
 
 

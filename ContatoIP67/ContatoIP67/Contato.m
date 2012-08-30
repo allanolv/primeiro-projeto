@@ -17,6 +17,8 @@
 @synthesize site;
 @synthesize twitter;
 @synthesize foto;
+@synthesize latitude;
+@synthesize longitude;
 
 - (NSString *)description{
     return [NSString stringWithFormat:@"Nome: %@ \r Telefone: %@ \r E-mail: %@ \r Endereco: %@ \r Site: %@ \r %@",nome, telefone, email,endereco,site,twitter];
@@ -29,6 +31,8 @@
     [aCoder encodeObject:site forKey:@"site"];
     [aCoder encodeObject:twitter forKey:@"twitter"];
     [aCoder encodeObject:foto forKey:@"foto"];
+    [aCoder encodeObject:latitude forKey:@"latitude"];
+    [aCoder encodeObject:longitude forKey:@"longitude"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -41,6 +45,8 @@
         [self setSite:[aDecoder decodeObjectForKey:@"site"]];
         [self setTwitter:[aDecoder decodeObjectForKey:@"twitter"]];
         [self setFoto:[aDecoder decodeObjectForKey:@"foto"]];
+        [self setLatitude:[aDecoder decodeObjectForKey:@"latitude"]];
+        [self setLongitude:[aDecoder decodeObjectForKey:@"longitude"]];
     }
     return self;
 }

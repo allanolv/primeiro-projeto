@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		90A10B6315ED95DF001391E8 /* SiteDoContatoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A10B6115ED95DF001391E8 /* SiteDoContatoViewController.m */; };
 		90A10B6415ED95DF001391E8 /* SiteDoContatoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90A10B6215ED95DF001391E8 /* SiteDoContatoViewController.xib */; };
+		90A10B6B15EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A10B6A15EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.m */; };
+		90A10B6E15EEE6C9001391E8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90A10B6D15EEE6C9001391E8 /* CoreLocation.framework */; };
 		90BE344515EC2A200001594D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90BE344415EC2A200001594D /* MessageUI.framework */; };
 		90BE344815EC3CB90001594D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90BE344715EC3CB90001594D /* Twitter.framework */; };
 		90BE344C15ED740E0001594D /* ContatosNoMapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BE344A15ED740E0001594D /* ContatosNoMapaViewController.m */; };
@@ -39,6 +41,9 @@
 		90A10B6015ED95DF001391E8 /* SiteDoContatoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiteDoContatoViewController.h; sourceTree = "<group>"; };
 		90A10B6115ED95DF001391E8 /* SiteDoContatoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiteDoContatoViewController.m; sourceTree = "<group>"; };
 		90A10B6215ED95DF001391E8 /* SiteDoContatoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SiteDoContatoViewController.xib; sourceTree = "<group>"; };
+		90A10B6915EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		90A10B6A15EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		90A10B6D15EEE6C9001391E8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		90BE344415EC2A200001594D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		90BE344715EC3CB90001594D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		90BE344915ED740E0001594D /* ContatosNoMapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContatosNoMapaViewController.h; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A10B6E15EEE6C9001391E8 /* CoreLocation.framework in Frameworks */,
 				90BE344F15ED745B0001594D /* MapKit.framework in Frameworks */,
 				90BE344815EC3CB90001594D /* Twitter.framework in Frameworks */,
 				90BE344515EC2A200001594D /* MessageUI.framework in Frameworks */,
@@ -126,6 +132,7 @@
 		90F2324415E44046000BAEAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90A10B6D15EEE6C9001391E8 /* CoreLocation.framework */,
 				90BE344E15ED745B0001594D /* MapKit.framework */,
 				90BE344715EC3CB90001594D /* Twitter.framework */,
 				90BE344415EC2A200001594D /* MessageUI.framework */,
@@ -147,9 +154,11 @@
 				90DD05A015E59EF000E46D0B /* ListaContatosViewController.m */,
 				90F2325C15E440F4000BAEAA /* FormularioContatoViewController.h */,
 				90F2325D15E440F4000BAEAA /* FormularioContatoViewController.m */,
+				90F2325E15E440F4000BAEAA /* FormularioContatoViewController.xib */,
+				90A10B6915EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.h */,
+				90A10B6A15EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.m */,
 				90F2326115E45CFC000BAEAA /* Contato.h */,
 				90F2326215E45CFC000BAEAA /* Contato.m */,
-				90F2325E15E440F4000BAEAA /* FormularioContatoViewController.xib */,
 				90BE344915ED740E0001594D /* ContatosNoMapaViewController.h */,
 				90BE344A15ED740E0001594D /* ContatosNoMapaViewController.m */,
 				90BE344B15ED740E0001594D /* ContatosNoMapaViewController.xib */,
@@ -251,6 +260,7 @@
 				90DD05A115E59EF000E46D0B /* ListaContatosViewController.m in Sources */,
 				90BE344C15ED740E0001594D /* ContatosNoMapaViewController.m in Sources */,
 				90A10B6315ED95DF001391E8 /* SiteDoContatoViewController.m in Sources */,
+				90A10B6B15EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

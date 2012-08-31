@@ -1,53 +1,31 @@
 //
 //  AppDelegate.m
-//  ContatoIP67
+//  RequestJson
 //
-//  Created by ios2971 on 21/08/12.
+//  Created by ios2971 on 30/08/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "FormularioContatoViewController.h"
-#import "ListaContatosViewController.h"
-#import "ContatosNoMapaViewController.h"
+#import "UltimosTweetsViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize contatos;
-@synthesize arquivoContrato;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    NSArray *usersDirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDir = [usersDirs objectAtIndex:0];
-    self.arquivoContrato = [NSString stringWithFormat:@"%@/ArquivoContatos", documentDir];
-    
-    self.contatos = [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContrato];
-    if(!self.contatos){
-        self.contatos = [[NSMutableArray alloc]init];
-    }
-//    FormularioContatoViewController *formulario = [[FormularioContatoViewController alloc]init];
-    ListaContatosViewController *lista = [[ListaContatosViewController alloc]initWithContatos:self.contatos];
-
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:lista];
-        
-    ContatosNoMapaViewController *contatosMapa = [[ContatosNoMapaViewController alloc]init];
-    contatosMapa.contatos = self.contatos;
-    
-    UINavigationController *navMap = [[UINavigationController alloc]initWithRootViewController:contatosMapa];
-    
-    UITabBarController *tabBarController = [[UITabBarController alloc]init];
-    
-    
-    tabBarController.viewControllers = [NSArray arrayWithObjects:nav,navMap, nil];
     // Override point for customization after application launch.
-    self.window.rootViewController = tabBarController;
+    
+    UltimosTweetsViewController *ultimosTweets = [[UltimosTweetsViewController alloc]init];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:ultimosTweets];
+    
+    self.window.rootViewController = navigationController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    sleep(3);
     return YES;
 }
 
@@ -61,8 +39,6 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
-    [NSKeyedArchiver archiveRootObject:self.contatos toFile:self.arquivoContrato];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

@@ -51,4 +51,15 @@
     return self;
 }
 
+-(CLLocationCoordinate2D)coordinate{
+    return CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+}
+
+-(NSString *)title{
+    return nome;
+}
+
+-(NSString *)subtitle{
+    return email;
+}
 @end

@@ -124,7 +124,7 @@
         
         UIActionSheet *opcoes =[[UIActionSheet alloc] initWithTitle:contato.nome delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Ligar", @"Enviar Email",@"Visualizar site",@"Abrir Mapa",@"Twittar", nil];
         
-        [opcoes showInView:self.view];
+        [opcoes showInView:self.tabBarController.view];
     }
 }
 
@@ -218,4 +218,5 @@
     [twt setInitialText:contatoSelecionado.twitter];
     [self presentModalViewController:twt animated:YES];
 }
+
 @end

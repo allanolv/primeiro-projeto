@@ -30,6 +30,7 @@
 @synthesize scroll;
 @synthesize latitude;
 @synthesize longitude;
+@synthesize contexto;
 
 - (id)initWithObjContatos:(Contato *) _contato{
     self = [super init];
@@ -184,7 +185,9 @@
 //    NSMutableDictionary *dadosdocontato = [[NSMutableDictionary alloc] init];
     if(!self.Objcontatos)
     {
-        Objcontatos = [[Contato alloc] init];
+        Objcontatos = [NSEntityDescription insertNewObjectForEntityForName:@"Contato" 
+                                                    inManagedObjectContext:self.contexto];
+        //Objcontatos = [[Contato alloc] init];
     }
         Objcontatos.nome = nome.text ;
         Objcontatos.telefone=telefone.text;

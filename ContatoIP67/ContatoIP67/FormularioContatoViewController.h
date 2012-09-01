@@ -14,6 +14,7 @@
 
 @property (strong) NSMutableArray *contatos;
 @property (strong) Contato *Objcontatos;
+@property (strong) NSManagedObjectContext *contexto;
 
 @property (weak, nonatomic) IBOutlet UITextField *nome;
 @property (weak, nonatomic) IBOutlet UITextField *telefone;

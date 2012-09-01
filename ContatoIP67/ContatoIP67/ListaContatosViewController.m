@@ -9,9 +9,10 @@
 #import "ListaContatosViewController.h"
 #import "Contato.h"
 
+
 @implementation ListaContatosViewController
 
-@synthesize contatos;
+@synthesize contatos,contexto;
 
 
 - (id)initWithContatos:(NSMutableArray *)contato{
@@ -97,6 +98,8 @@
     FormularioContatoViewController *form = [[FormularioContatoViewController alloc]init];
     
     form.delegate = self;
+    form.contexto = self.contexto;
+    
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:form];
     [self presentModalViewController:nav animated:YES];

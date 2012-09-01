@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface Contato : NSObject<NSCoding, MKAnnotation>
+@interface Contato : NSManagedObject <MKAnnotation>
 
 @property NSString *nome;
 @property NSString *telefone;

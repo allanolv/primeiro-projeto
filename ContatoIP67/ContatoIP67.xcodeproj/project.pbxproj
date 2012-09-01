@@ -25,6 +25,8 @@
 		90BE346015ED80420001594D /* mapa-contatos.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BE345715ED80420001594D /* mapa-contatos.png */; };
 		90BE346115ED80420001594D /* mapa-contatos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BE345815ED80420001594D /* mapa-contatos@2x.png */; };
 		90BE346215ED80420001594D /* Vila Mariana.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 90BE345915ED80420001594D /* Vila Mariana.gpx */; };
+		90D86ED715F1660A0032A50F /* Modelo_Contatos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90D86ED515F1660A0032A50F /* Modelo_Contatos.xcdatamodeld */; };
+		90D86EDB15F170990032A50F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90D86EDA15F170990032A50F /* CoreData.framework */; };
 		90DD05A115E59EF000E46D0B /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90DD05A015E59EF000E46D0B /* ListaContatosViewController.m */; };
 		90F2324615E44046000BAEAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F2324515E44046000BAEAA /* UIKit.framework */; };
 		90F2324815E44046000BAEAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F2324715E44046000BAEAA /* Foundation.framework */; };
@@ -59,6 +61,8 @@
 		90BE345715ED80420001594D /* mapa-contatos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapa-contatos.png"; sourceTree = "<group>"; };
 		90BE345815ED80420001594D /* mapa-contatos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapa-contatos@2x.png"; sourceTree = "<group>"; };
 		90BE345915ED80420001594D /* Vila Mariana.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Vila Mariana.gpx"; sourceTree = "<group>"; };
+		90D86ED615F1660A0032A50F /* Modelo_Contatos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Modelo_Contatos.xcdatamodel; sourceTree = "<group>"; };
+		90D86EDA15F170990032A50F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		90DD059F15E59EF000E46D0B /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
 		90DD05A015E59EF000E46D0B /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
 		90F2324115E44046000BAEAA /* ContatoIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatoIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D86EDB15F170990032A50F /* CoreData.framework in Frameworks */,
 				90A10B6E15EEE6C9001391E8 /* CoreLocation.framework in Frameworks */,
 				90BE344F15ED745B0001594D /* MapKit.framework in Frameworks */,
 				90BE344815EC3CB90001594D /* Twitter.framework in Frameworks */,
@@ -112,6 +117,14 @@
 			name = Ressource;
 			sourceTree = "<group>";
 		};
+		90D86ED915F1661E0032A50F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				90D86ED515F1660A0032A50F /* Modelo_Contatos.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		90F2323615E44046000BAEAA = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 		90F2324415E44046000BAEAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90D86EDA15F170990032A50F /* CoreData.framework */,
 				90A10B6D15EEE6C9001391E8 /* CoreLocation.framework */,
 				90BE344E15ED745B0001594D /* MapKit.framework */,
 				90BE344715EC3CB90001594D /* Twitter.framework */,
@@ -146,6 +160,7 @@
 		90F2324B15E44046000BAEAA /* ContatoIP67 */ = {
 			isa = PBXGroup;
 			children = (
+				90D86ED915F1661E0032A50F /* CoreData */,
 				90BE345015ED80050001594D /* Ressource */,
 				90F2324C15E44046000BAEAA /* Supporting Files */,
 				90F2325415E44046000BAEAA /* AppDelegate.h */,
@@ -261,6 +276,7 @@
 				90BE344C15ED740E0001594D /* ContatosNoMapaViewController.m in Sources */,
 				90A10B6315ED95DF001391E8 /* SiteDoContatoViewController.m in Sources */,
 				90A10B6B15EEDEDA001391E8 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				90D86ED715F1660A0032A50F /* Modelo_Contatos.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +383,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		90D86ED515F1660A0032A50F /* Modelo_Contatos.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				90D86ED615F1660A0032A50F /* Modelo_Contatos.xcdatamodel */,
+			);
+			currentVersion = 90D86ED615F1660A0032A50F /* Modelo_Contatos.xcdatamodel */;
+			path = Modelo_Contatos.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 90F2323815E44046000BAEAA /* Project object */;
 }

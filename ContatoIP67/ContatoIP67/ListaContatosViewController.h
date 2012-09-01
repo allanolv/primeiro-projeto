@@ -17,6 +17,7 @@
     Contato *contatoSelecionado;
 }
 @property(strong) NSMutableArray *contatos;
+@property (strong) NSManagedObjectContext *contexto;
 
 - (id)initWithContatos:(NSMutableArray *)contato;
 - (void)exibeformulario;
